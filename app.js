@@ -92,7 +92,7 @@
     }
 
     document.querySelectorAll('img[data-render]').forEach((img) => {
-      swap(img, `assets/renders/${finish.id}/${img.dataset.render}.jpg`);
+      swap(img, `assets/renders/${finish.id}/${img.dataset.render}.avif`);
     });
     document.querySelector('.device-caption').textContent = DEVICES[device].caption(finish);
   }
