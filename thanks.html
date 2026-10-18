@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Thanks for getting DynamicNotch</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#000000">
+  <!-- Where the Download button goes (same as on the main page). -->
+  <meta name="dynamicnotch:download" content="https://github.com/ClauClau1/Dynamic-Notch/releases/latest">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* After checkout: Stripe sends buyers here (set as each Payment Link's confirmation page). */
+    .thanks { max-width: 672px; margin: 0 auto; padding-block: 120px 100px; text-align: center;
+              padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+    .thanks .download-icon { margin-bottom: 26px; }
+    .thanks h1 { font-size: clamp(44px, 8vw, 72px); }
+    .thanks .lede { margin-top: 18px; }
+    .thanks .actions { margin-top: 30px; }
+    .steps { display: grid; gap: 0; margin: 48px 0 0; padding: 0; list-style: none; text-align: left;
+             border-radius: var(--radius); background: var(--card); border: 1px solid var(--card-border); counter-reset: step; }
+    .steps li { display: flex; gap: 16px; align-items: flex-start; padding: 18px 22px; }
+    .steps li + li { border-top: 1px solid var(--card-border); }
+    .steps li::before { counter-increment: step; content: counter(step); flex: none; display: grid; place-items: center;
+                        width: 28px; height: 28px; border-radius: 50%; background: var(--fill-strong); font-size: 14px; font-weight: 700; }
+    .steps h2 { margin: 2px 0 2px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+    .steps p { margin: 0; font-size: 15px; color: var(--muted); }
+    .thanks .small { margin-top: 26px; font-size: 14px; color: var(--faint); }
+  </style>
+</head>
+<body data-accent="green">
+  <div class="glow" aria-hidden="true"></div>
+  <main class="thanks">
+    <img class="download-icon" src="assets/icon.png" alt="" width="120" height="120">
+    <h1>You're all set.</h1>
+    <p class="lede">Thanks for getting DynamicNotch. Stripe has emailed your receipt.</p>
+    <div class="actions">
+      <a class="button primary large" id="download" href="https://github.com/ClauClau1/Dynamic-Notch/releases/latest">Download for Mac</a>
+    </div>
+    <ol class="steps">
+      <li><div><h2>Download DynamicNotch</h2><p>It needs macOS 14 Sonoma or later.</p></div></li>
+      <li><div><h2>Move it to Applications</h2><p>Open the download and drag DynamicNotch into your Applications folder.</p></div></li>
+      <li><div><h2>Open it</h2><p>The island appears in your notch, or in a notch DynamicNotch draws for you. Click it to open, and find Settings in the menu bar.</p></div></li>
+    </ol>
+    <p class="small">Started the yearly trial? You won't be charged until the 7 days are up. <a class="link" href="./">Back to the website</a></p>
+  </main>
+  <script>
+    // The download address lives in one place, the meta tag above.
+    const url = document.querySelector('meta[name="dynamicnotch:download"]')?.content;
+    if (url) document.getElementById('download').href = url;
+  </script>
+</body>
+</html>

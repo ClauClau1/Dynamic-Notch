@@ -518,14 +518,77 @@ summary::after {
 details[open] summary::after { transform: rotate(225deg) translate(-2px, -2px); }
 details p { margin: 0 0 20px; color: var(--muted); font-size: 16px; }
 
+/* ---------- Pricing ---------- */
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1040px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+.plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 30px 26px 26px;
+  border-radius: 26px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+}
+.plan h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; color: rgba(255, 255, 255, 0.85); }
+.price { display: flex; align-items: baseline; gap: 8px; margin: 10px 0 0; }
+.price .amount { font-size: clamp(40px, 5vw, 52px); font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.price .per { font-size: 17px; font-weight: 500; color: var(--muted); }
+.billing { margin: 0 0 22px; min-height: 2.9em; font-size: 15px; color: var(--muted); }
+.trial {
+  align-self: flex-start;
+  margin: 2px 0 0;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--green) 18%, transparent);
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 600;
+}
+.plan .button { margin-top: auto; justify-content: center; }
+/* The yearly plan: black like the island, with the accent glowing round it. */
+.plan.featured {
+  background: #000;
+  border-color: color-mix(in srgb, var(--pink) 55%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--pink) 25%, transparent), 0 24px 70px color-mix(in srgb, var(--pink) 28%, transparent);
+}
+.plan-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 4px 12px;
+  border-radius: 13px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--pink) 100%, #fff 18%), var(--pink));
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.includes { max-width: 1040px; margin: 28px auto 0; padding: 22px 26px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--card-border); }
+.includes-title { margin: 0 0 12px; font-size: 15px; font-weight: 600; color: var(--muted); }
+.includes ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 20px; margin: 0; padding: 0; list-style: none; }
+.includes li { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+.includes li svg { font-size: 18px; color: var(--green); }
+.pricing-note { max-width: 1040px; margin: 18px auto 0; text-align: center; font-size: 14px; color: var(--faint); }
+
 /* ---------- Download ---------- */
 
 .download { text-align: center; padding-bottom: 140px; }
 .download-icon {
-  margin: 0 auto 28px;
-  width: 160px;
-  height: 160px;
-  border-radius: 36px;
+  margin: 0 auto 24px;
+  width: 120px;
+  height: 120px;
+  border-radius: 27px;
   filter: drop-shadow(0 24px 60px rgba(255, 55, 95, 0.4));
 }
 .download p { margin: 14px 0 30px; color: var(--muted); font-size: 19px; }
@@ -567,6 +630,9 @@ footer p { margin: 0; max-width: 680px; }
 /* ---------- Narrow screens ---------- */
 
 @media (max-width: 960px) {
+  .plans { grid-template-columns: 1fr; max-width: 440px; gap: 22px; }
+  .plan.featured { order: -1; }
+  .includes ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feature, .feature:nth-of-type(even) { grid-template-columns: 1fr; gap: 28px; margin-bottom: 90px; }
   .feature:nth-of-type(even) .feature-text { order: 0; }
   .feature-text { text-align: center; max-width: 600px; margin: 0 auto; }
@@ -590,7 +656,7 @@ footer p { margin: 0; max-width: 680px; }
 }
 
 @media (max-width: 460px) {
-  .cards { grid-template-columns: 1fr; }
+  .cards, .includes ul { grid-template-columns: 1fr; }
   .menu-right, .hide-xs { display: none; }
 }
 

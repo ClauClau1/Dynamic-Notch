@@ -137,7 +137,7 @@
   // ---------- The glow and the notch bar follow the section you're in ----------
 
   const accentElements = [...document.querySelectorAll('[data-accent]')];
-  const navSections = ['top', 'try', 'features', 'gestures', 'film', 'download'].map((id) => document.getElementById(id));
+  const navSections = ['top', 'try', 'features', 'gestures', 'film', 'pricing'].map((id) => document.getElementById(id));
   const tabs = [...document.querySelectorAll('.notch-tab')];
   let scrollQueued = false;
 
@@ -157,7 +157,7 @@
     for (const section of navSections) {
       if (section && section.getBoundingClientRect().top <= line) current = section.id;
     }
-    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) current = 'download';
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) current = 'pricing';
     for (const tab of tabs) tab.classList.toggle('current', tab.dataset.nav === current);
   }
   addEventListener('scroll', () => {
