@@ -1,0 +1,147 @@
+{
+  "canvas" : [
+    760,
+    280
+  ],
+  "states" : {
+    "airpods" : {
+      "bottom" : 22,
+      "height" : 124,
+      "image" : "airpods.png",
+      "kind" : "alert",
+      "top" : 6,
+      "width" : 381
+    },
+    "charging" : {
+      "bottom" : 16,
+      "height" : 32,
+      "image" : "charging.png",
+      "kind" : "alert",
+      "top" : 6,
+      "width" : 381
+    },
+    "clipboard" : {
+      "bottom" : 40,
+      "height" : 156,
+      "image" : "clipboard.png",
+      "kind" : "expanded",
+      "top" : 12,
+      "width" : 549
+    },
+    "downloaded" : {
+      "bottom" : 22,
+      "height" : 66,
+      "image" : "downloaded.png",
+      "kind" : "alert",
+      "top" : 6,
+      "width" : 381
+    },
+    "fans" : {
+      "bottom" : 40,
+      "height" : 144,
+      "image" : "fans.png",
+      "kind" : "expanded",
+      "top" : 12,
+      "width" : 549
+    },
+    "focus" : {
+      "bottom" : 16,
+      "height" : 32,
+      "image" : "focus.png",
+      "kind" : "alert",
+      "top" : 6,
+      "width" : 461
+    },
+    "hero" : {
+      "bottom" : 40,
+      "height" : 170,
+      "image" : "hero.png",
+      "kind" : "expanded",
+      "top" : 12,
+      "width" : 549
+    },
+    "idle" : {
+      "bottom" : 9,
+      "height" : 32,
+      "kind" : "idle",
+      "top" : 6,
+      "width" : 197
+    },
+    "mic" : {
+      "bottom" : 16,
+      "height" : 32,
+      "image" : "mic.png",
+      "kind" : "alert",
+      "top" : 6,
+      "width" : 405
+    },
+    "music" : {
+      "bottom" : 16,
+      "height" : 32,
+      "image" : "music.png",
+      "kind" : "compact",
+      "top" : 6,
+      "width" : 277
+    },
+    "music-front" : {
+      "bottom" : 16,
+      "bubble" : [
+        524.5,
+        0,
+        44,
+        32
+      ],
+      "height" : 32,
+      "image" : "music-front.png",
+      "kind" : "compact",
+      "top" : 6,
+      "width" : 277
+    },
+    "music-hover" : {
+      "bottom" : 16,
+      "height" : 35,
+      "image" : "music.png",
+      "kind" : "compact",
+      "top" : 6,
+      "width" : 291
+    },
+    "timer" : {
+      "bottom" : 40,
+      "height" : 132,
+      "image" : "timer.png",
+      "kind" : "expanded",
+      "top" : 12,
+      "width" : 549
+    },
+    "timer-front" : {
+      "bottom" : 16,
+      "bubble" : [
+        544.5,
+        0,
+        44,
+        32
+      ],
+      "height" : 32,
+      "image" : "timer-front.png",
+      "kind" : "compact",
+      "top" : 6,
+      "width" : 317
+    },
+    "timer-running" : {
+      "bottom" : 40,
+      "height" : 106,
+      "image" : "timer-running.png",
+      "kind" : "expanded",
+      "top" : 12,
+      "width" : 549
+    },
+    "volume" : {
+      "bottom" : 16,
+      "height" : 32,
+      "image" : "volume.png",
+      "kind" : "alert",
+      "top" : 6,
+      "width" : 353
+    }
+  }
+}
