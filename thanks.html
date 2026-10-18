@@ -8,6 +8,8 @@
   <meta name="theme-color" content="#000000">
   <!-- Where the Download button goes (same as on the main page). -->
   <meta name="dynamicnotch:download" content="https://github.com/ClauClau1/Dynamic-Notch/releases/latest">
+  <!-- The license server (LicenseServer/ in the app's repo). Empty: no key is shown. -->
+  <meta name="dynamicnotch:license-server" content="">
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -27,6 +29,19 @@
     .steps h2 { margin: 2px 0 2px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
     .steps p { margin: 0; font-size: 15px; color: var(--muted); }
     .thanks .small { margin-top: 26px; font-size: 14px; color: var(--faint); }
+    /* The license key, claimed from the server with Stripe's checkout id. */
+    .license { margin: 40px 0 0; padding: 26px 24px 24px; border-radius: 26px; background: #000;
+               border: 1px solid color-mix(in srgb, var(--green) 45%, transparent);
+               box-shadow: 0 24px 70px color-mix(in srgb, var(--green) 18%, transparent); }
+    .license[hidden] { display: none; }
+    .license-label { margin: 0; font-size: 14px; font-weight: 600; color: var(--muted); }
+    .license-key { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin: 12px 0 6px; }
+    .license-key code { font: 600 clamp(18px, 4.6vw, 24px) / 1.3 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0.04em;
+                        user-select: all; overflow-wrap: anywhere; }
+    .license-plan { margin: 0; font-size: 14px; color: var(--muted); }
+    .license .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
+    .license-note { margin: 16px 0 0; font-size: 14px; color: var(--faint); }
+    .license-error { color: #ff9f0a; }
   </style>
 </head>
 <body data-accent="green">
@@ -35,20 +50,87 @@
     <img class="download-icon" src="assets/icon.png" alt="" width="120" height="120">
     <h1>You're all set.</h1>
     <p class="lede">Thanks for getting DynamicNotch. Stripe has emailed your receipt.</p>
+    <section class="license" id="license" hidden aria-live="polite">
+      <p class="license-label" id="license-label">Getting your license key…</p>
+      <div class="license-key" id="license-key" hidden>
+        <code id="license-code"></code>
+        <button class="button" id="copy" type="button">Copy</button>
+      </div>
+      <p class="license-plan" id="license-plan"></p>
+      <div class="actions" id="license-actions" hidden>
+        <a class="button primary" id="activate" href="#">Activate in DynamicNotch</a>
+      </div>
+      <p class="license-note" id="license-note" hidden>Keep this key: it activates DynamicNotch on up to 3 Macs. This page shows it again if you come back to it.</p>
+    </section>
     <div class="actions">
       <a class="button primary large" id="download" href="https://github.com/ClauClau1/Dynamic-Notch/releases/latest">Download for Mac</a>
     </div>
     <ol class="steps">
       <li><div><h2>Download DynamicNotch</h2><p>It needs macOS 14 Sonoma or later.</p></div></li>
-      <li><div><h2>Move it to Applications</h2><p>Open the download and drag DynamicNotch into your Applications folder.</p></div></li>
-      <li><div><h2>Open it</h2><p>The island appears in your notch, or in a notch DynamicNotch draws for you. Click it to open, and find Settings in the menu bar.</p></div></li>
+      <li><div><h2>Move it to Applications</h2><p>Open the download and drag DynamicNotch into your Applications folder, then open it.</p></div></li>
+      <li><div><h2 id="last-step-title">Activate it</h2><p id="last-step">Click <strong>Activate in DynamicNotch</strong> above, or paste your key in Settings → License (in the menu bar).</p></div></li>
     </ol>
     <p class="small">Started the yearly trial? You won't be charged until the 7 days are up. <a class="link" href="./">Back to the website</a></p>
   </main>
   <script>
-    // The download address lives in one place, the meta tag above.
-    const url = document.querySelector('meta[name="dynamicnotch:download"]')?.content;
-    if (url) document.getElementById('download').href = url;
+    (() => {
+      const meta = (name) => document.querySelector(`meta[name="dynamicnotch:${name}"]`)?.content.trim() || '';
+      const $ = (id) => document.getElementById(id);
+
+      // The download address lives in one place, the meta tag above.
+      if (meta('download')) $('download').href = meta('download');
+
+      // Stripe sends buyers here with ?session_id={CHECKOUT_SESSION_ID}; the server turns it into a key.
+      const server = meta('license-server').replace(/\/$/, '');
+      const session = new URLSearchParams(location.search).get('session_id');
+      if (!server || !session) {
+        $('last-step-title').textContent = 'Open it';
+        $('last-step').textContent = 'The island appears in your notch, or in a notch DynamicNotch draws for you. Click it to open, and find Settings in the menu bar.';
+        return;
+      }
+      $('license').hidden = false;
+
+      const plans = { monthly: 'Monthly plan', yearly: 'Yearly plan', lifetime: 'Lifetime' };
+      async function claim(attempt = 1) {
+        try {
+          const response = await fetch(`${server}/claim`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ session_id: session }),
+          });
+          const data = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            // Payment can take a moment to settle; try again a few times before giving up.
+            if ((response.status === 402 || response.status >= 500) && attempt < 4) return setTimeout(() => claim(attempt + 1), 2500 * attempt);
+            throw new Error(data.error || `The license server couldn't help (error ${response.status}).`);
+          }
+          show(data);
+        } catch (error) {
+          if (attempt < 3 && error instanceof TypeError) return setTimeout(() => claim(attempt + 1), 2500 * attempt);
+          $('license-label').textContent = error.message || 'We couldn\'t get your key.';
+          $('license-label').classList.add('license-error');
+          $('license-plan').textContent = 'Refresh this page in a minute. If it keeps happening, keep this page\'s address and get in touch.';
+        }
+      }
+
+      function show({ key, plan, email }) {
+        $('license-label').textContent = 'Your license key';
+        $('license-code').textContent = key;
+        $('license-key').hidden = false;
+        $('license-plan').textContent = [plans[plan] || plan, email].filter(Boolean).join(' · ');
+        $('activate').href = `dynamicnotch://activate?key=${encodeURIComponent(key)}`;
+        $('license-actions').hidden = false;
+        $('license-note').hidden = false;
+        $('copy').addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(key);
+            $('copy').textContent = 'Copied';
+          } catch {
+            getSelection().selectAllChildren($('license-code'));
+          }
+        });
+      }
+
+      claim();
+    })();
   </script>
 </body>
 </html>
