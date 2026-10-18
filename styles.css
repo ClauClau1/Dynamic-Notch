@@ -34,6 +34,8 @@
 }
 
 * { box-sizing: border-box; }
+/* `hidden` wins over the display set by any class. */
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
@@ -538,6 +540,7 @@ details p { margin: 0 0 20px; color: var(--muted); font-size: 16px; }
   background: var(--card);
   border: 1px solid var(--card-border);
 }
+.plan-icon { width: 64px; height: 64px; margin: -6px 0 8px -6px; }
 .plan h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; color: rgba(255, 255, 255, 0.85); }
 .price { display: flex; align-items: baseline; gap: 8px; margin: 10px 0 0; }
 .price .amount { font-size: clamp(40px, 5vw, 52px); font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }

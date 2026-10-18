@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#000000">
   <meta name="claude:viewport-fit-sides" content="cover">
   <!-- Where the Download buttons go. -->
-  <meta name="dynamicnotch:download" content="https://github.com/ClauClau1/Dynamic-Notch/releases/latest">
+  <meta name="dynamicnotch:download" content="download.html">
   <meta property="og:title" content="DynamicNotch: your notch, brought to life">
   <meta property="og:description" content="The Dynamic Island, made for Mac. Music, timers, files, fans and alerts in the notch, and on Macs without one.">
   <meta property="og:image" content="assets/promo-poster.jpg">
@@ -61,6 +61,7 @@
     <a class="notch-tab" href="#gestures" data-nav="gestures"><svg><use href="#i-swipe"/></svg><span>Gestures</span></a>
     <a class="notch-tab" href="#film" data-nav="film"><svg><use href="#i-play"/></svg><span>Film</span></a>
     <a class="notch-tab" href="#pricing" data-nav="pricing"><svg><use href="#i-tag"/></svg><span>Pricing</span></a>
+    <a class="notch-tab" href="download.html"><svg><use href="#i-download"/></svg><span>Download</span></a>
   </nav>
 
   <main>
@@ -260,6 +261,7 @@
       </header>
       <div class="plans">
         <article class="plan">
+          <img class="plan-icon" src="assets/plans/monthly.png" alt="" width="64" height="64" loading="lazy">
           <h3>Monthly</h3>
           <p class="price"><span class="amount">€4.99</span><span class="per">/ month</span></p>
           <p class="billing">Billed every month.</p>
@@ -267,6 +269,7 @@
         </article>
         <article class="plan featured">
           <p class="plan-badge">Best value</p>
+          <img class="plan-icon" src="assets/plans/yearly.png" alt="" width="64" height="64" loading="lazy">
           <h3>Yearly</h3>
           <p class="price"><span class="amount">€49.99</span><span class="per">/ year</span></p>
           <p class="trial">Free for 7 days</p>
@@ -274,6 +277,7 @@
           <a class="button primary" href="https://buy.stripe.com/28EaEYacM8rwdDm5XX1kA02" rel="noopener">Start free trial</a>
         </article>
         <article class="plan">
+          <img class="plan-icon" src="assets/plans/lifetime.png" alt="" width="64" height="64" loading="lazy">
           <h3>Lifetime</h3>
           <p class="price"><span class="amount">€99.99</span><span class="per">once</span></p>
           <p class="billing">One payment. No subscription.</p>
@@ -291,14 +295,15 @@
           <li><svg><use href="#i-check"/></svg>Gestures and the drawn-in notch</li>
         </ul>
       </div>
-      <p class="pricing-note">Prices in euros. Checkout is handled securely by Stripe and shows your local currency.</p>
+      <p class="pricing-note">Not sure yet? <a class="link" href="download.html">Download it</a> and try everything free for 7 days, no card needed.<br>
+        Prices in euros. Checkout is handled securely by Stripe and shows your local currency.</p>
     </section>
 
-    <!-- Download, for people who already have a plan -->
+    <!-- Download: the free week, or the app for people who already have a plan -->
     <section class="download" id="download" data-accent="pink">
       <img class="download-icon" src="assets/icon.png" alt="" width="120" height="120" loading="lazy">
-      <h2>Already have a plan?</h2>
-      <p>Download DynamicNotch for macOS 14 Sonoma or later.</p>
+      <h2>Try it free for a week.</h2>
+      <p>Download DynamicNotch and use everything for 7 days. No account, no card.</p>
       <a class="button primary large" data-download href="#"><svg><use href="#i-download"/></svg>Download for Mac</a>
     </section>
   </main>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Download DynamicNotch</title>
+  <meta name="description" content="Download DynamicNotch for Mac and try everything free for 7 days. No account, no card.">
+  <meta name="theme-color" content="#000000">
+  <!-- The release. While dmg is empty the page says "Coming soon"; set it (and the size) to go live,
+       e.g. https://github.com/ClauClau1/Dynamic-Notch/releases/latest/download/DynamicNotch.dmg -->
+  <meta name="dynamicnotch:dmg" content="">
+  <meta name="dynamicnotch:version" content="1.1">
+  <meta name="dynamicnotch:size" content="">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .get { max-width: 760px; margin: 0 auto; padding-block: 120px 40px; text-align: center;
+           padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+    .get .download-icon { margin-bottom: 26px; }
+    .get h1 { font-size: clamp(44px, 8vw, 80px); }
+    .get .lede { margin-top: 18px; }
+    .get .actions { margin-top: 32px; }
+    .release { margin: 16px 0 0; font-size: 14px; color: var(--faint); font-variant-numeric: tabular-nums; }
+    .soon { display: inline-flex; align-items: center; gap: 8px; height: 54px; padding: 0 28px; border-radius: 27px;
+            background: var(--card); border: 1px solid var(--card-border); font-size: 18px; font-weight: 600; color: var(--muted); }
+    .soon .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
+    .soon-note { max-width: 520px; margin: 16px auto 0; font-size: 15px; color: var(--muted); }
+    .soon-note a, .details a { color: var(--cyan); }
+
+    .details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 1040px;
+               margin: 56px auto 0; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+    .details .card { padding: 24px; }
+    .details .card.wide { grid-column: 1 / -1; }
+    .details h2 { margin: 12px 0 10px; font-size: 20px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
+    .details p, .details li { font-size: 15px; color: var(--muted); }
+    .details p { margin: 0 0 10px; }
+    .details strong { color: #fff; font-weight: 600; }
+    .details ol, .details ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+    .details .button { margin-top: 6px; }
+    .page-end { padding-bottom: 120px; }
+    @media (max-width: 720px) { .details { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body data-accent="purple">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M10 2.5l1.6 4.9 4.9 1.6-4.9 1.6L10 15.5l-1.6-4.9L3.5 9l4.9-1.6zM18 13l.9 2.6 2.6.9-2.6.9L18 20l-.9-2.6-2.6-.9 2.6-.9z"/></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2.5"/><rect x="13" y="3" width="8" height="8" rx="2.5"/><rect x="3" y="13" width="8" height="8" rx="2.5"/><rect x="13" y="13" width="8" height="8" rx="2.5"/></symbol>
+      <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 4.5A1.5 1.5 0 0 1 4.5 3h6.4a2 2 0 0 1 1.4.6l8.6 8.6a2 2 0 0 1 0 2.8l-6.4 6.4a2 2 0 0 1-2.8 0L3.6 12.8a2 2 0 0 1-.6-1.4zM8 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3a1.5 1.5 0 0 1 1.5 1.5v8.4l2.9-2.9a1.5 1.5 0 0 1 2.1 2.1l-5.5 5.5a1.5 1.5 0 0 1-2 0L5.5 12.1A1.5 1.5 0 0 1 7.6 10l2.9 2.9V4.5A1.5 1.5 0 0 1 12 3zM4 19.5h16a1.5 1.5 0 0 1 0 3H4a1.5 1.5 0 0 1 0-3z"/></symbol>
+      <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 2h12a1 1 0 0 1 0 2h-1v2.6a5 5 0 0 1-2.2 4.1L13.6 12l1.2.8A5 5 0 0 1 17 17v3h1a1 1 0 0 1 0 2H6a1 1 0 0 1 0-2h1v-3a5 5 0 0 1 2.2-4.2l1.2-.8-1.2-.8A5 5 0 0 1 7 6.6V4H6a1 1 0 0 1 0-2zm3 2v2.6a3 3 0 0 0 1.3 2.5L12 10.3l1.7-1.2A3 3 0 0 0 15 6.6V4z"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M9.5 16.2 5.3 12a1 1 0 0 0-1.4 1.4l4.9 4.9a1 1 0 0 0 1.4 0L20.1 8.4A1 1 0 0 0 18.7 7z"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5v3h.5A2.5 2.5 0 0 1 20 12.5v7a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 19.5v-7A2.5 2.5 0 0 1 6.5 10H7V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v3h6V7a3 3 0 0 0-3-3z"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M9 2h6a1 1 0 0 1 1 1v1h4a1 1 0 0 1 0 2h-1l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6H4a1 1 0 0 1 0-2h4V3a1 1 0 0 1 1-1zm-2 4 1 14h8l1-14z"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="glow" aria-hidden="true"></div>
+
+  <nav class="notch-bar" aria-label="Sections">
+    <a class="notch-brand" href="./" aria-label="DynamicNotch"><img src="assets/icon.png" alt="" width="22" height="22"></a>
+    <a class="notch-tab" href="./#top"><svg><use href="#i-sparkles"/></svg><span>Overview</span></a>
+    <a class="notch-tab" href="./#features"><svg><use href="#i-grid"/></svg><span>Features</span></a>
+    <a class="notch-tab" href="./#pricing"><svg><use href="#i-tag"/></svg><span>Pricing</span></a>
+    <a class="notch-tab current" href="download.html" aria-current="page"><svg><use href="#i-download"/></svg><span>Download</span></a>
+  </nav>
+
+  <main>
+    <section class="get">
+      <img class="download-icon" src="assets/icon.png" alt="" width="120" height="120">
+      <h1>Download DynamicNotch.</h1>
+      <p class="lede">Try everything free for 7 days. No account, no card.</p>
+      <div class="actions" id="ready" hidden>
+        <a class="button primary large" id="dmg" href="#"><svg><use href="#i-download"/></svg>Download for Mac</a>
+      </div>
+      <p class="release" id="release" hidden></p>
+      <div class="actions" id="soon">
+        <span class="soon"><span class="dot"></span>Coming soon</span>
+      </div>
+      <p class="soon-note" id="soon-note">We're getting the first release signed and checked by Apple. It'll be here very soon. Meanwhile, <a href="./#try">try the island in your browser</a>.</p>
+    </section>
+
+    <section class="details page-end" aria-label="Installing DynamicNotch">
+      <div class="card">
+        <span class="badge indigo"><svg><use href="#i-download"/></svg></span>
+        <h2>Install it</h2>
+        <ol>
+          <li>Open <strong>DynamicNotch.dmg</strong> from your Downloads.</li>
+          <li>Drag <strong>DynamicNotch</strong> into the <strong>Applications</strong> folder.</li>
+          <li>Open it. The island appears in your notch, or in a notch DynamicNotch draws on Macs without one. Settings live in the menu bar.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <span class="badge orange"><svg><use href="#i-hourglass"/></svg></span>
+        <h2>Your free week</h2>
+        <p>Everything works for 7 days from the first time you open it. After that, pick a plan to keep the island: monthly, yearly with a week free, or lifetime.</p>
+        <p>Already have a key? Open <strong>Settings → License</strong> from the menu bar and click <strong>Activate</strong>.</p>
+        <a class="button" href="./#pricing">See plans</a>
+      </div>
+
+      <div class="card">
+        <span class="badge green"><svg><use href="#i-check"/></svg></span>
+        <h2>What you need</h2>
+        <ul>
+          <li><strong>macOS 14 Sonoma</strong> or later.</li>
+          <li>Any Mac: on a MacBook with a notch, the island grows out of it; on other Macs it draws its own.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="badge blue"><svg><use href="#i-lock"/></svg></span>
+        <h2>Permissions it may ask for</h2>
+        <ul>
+          <li><strong>Bluetooth</strong>, to show AirPods and their battery when they connect.</li>
+          <li><strong>Focus</strong>, to show when a Focus turns on or off.</li>
+          <li><strong>Music and Spotify</strong>, to show and control what's playing.</li>
+          <li><strong>Your password</strong>, only if you turn on fan control, to install its small helper.</li>
+        </ul>
+      </div>
+
+      <div class="card wide">
+        <span class="badge gray"><svg><use href="#i-trash"/></svg></span>
+        <h2>Removing it</h2>
+        <p>If you turned on fan control, first click <strong>Uninstall…</strong> in Settings → Fans so the fans go back to macOS. Then quit DynamicNotch from the menu bar and drag it from Applications to the Trash. To use your license on another Mac, click <strong>Deactivate this Mac</strong> in Settings → License before you remove it.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><img src="assets/icon.png" alt="" width="24" height="24"><span>DynamicNotch</span></div>
+    <p>Mac, MacBook, MacBook Air, MacBook Pro, iMac, AirPods and Dynamic Island are trademarks of Apple Inc. DynamicNotch is not affiliated with Apple.</p>
+  </footer>
+
+  <script>
+    (() => {
+      const meta = (name) => document.querySelector(`meta[name="dynamicnotch:${name}"]`)?.content.trim() || '';
+      const dmg = meta('dmg');
+      if (!dmg) return;
+      // The release is out: swap "Coming soon" for the download.
+      document.getElementById('dmg').href = dmg;
+      document.getElementById('ready').hidden = false;
+      document.getElementById('soon').hidden = true;
+      document.getElementById('soon-note').hidden = true;
+      const release = document.getElementById('release');
+      release.textContent = [meta('version') && `Version ${meta('version')}`, meta('size'), 'macOS 14 Sonoma or later'].filter(Boolean).join(' · ');
+      release.hidden = false;
+    })();
+  </script>
+</body>
+</html>
