@@ -15,6 +15,19 @@
   const downloadURL = document.querySelector('meta[name="dynamicnotch:download"]')?.content || '#download';
   document.querySelectorAll('a[data-download][href="#"]').forEach((a) => { a.href = downloadURL; });
 
+  // Copy buttons (the launch offer's code). Falls back to selecting the text if the clipboard says no.
+  document.querySelectorAll('[data-copy]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        button.classList.add('copied');
+        setTimeout(() => button.classList.remove('copied'), 1600);
+      } catch {
+        getSelection().selectAllChildren(button.firstChild?.parentNode ?? button);
+      }
+    });
+  });
+
   // ---------- Which Mac ----------
 
   const DEVICES = {
