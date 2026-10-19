@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>DynamicNotch</title>
+        <link>https://clauclau1.github.io/Dynamic-Notch/</link>
+        <description>Updates for DynamicNotch. scripts/release.sh adds each version here.</description>
+    </channel>
+</rss>
