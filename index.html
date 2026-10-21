@@ -1,6 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google Analytics counts visits only once a visitor agrees: Consent Mode starts denied unless they
+       accepted before, and analytics.js asks with a banner. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: (() => { try { return localStorage.getItem('dn-analytics') === 'granted' ? 'granted' : 'denied'; } catch { return 'denied'; } })(),
+    });
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L0THVVBFBY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L0THVVBFBY');
+  </script>
+  <script src="analytics.js" defer></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>DynamicNotch</title>

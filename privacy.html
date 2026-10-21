@@ -1,6 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google Analytics counts visits only once a visitor agrees: Consent Mode starts denied unless they
+       accepted before, and analytics.js asks with a banner. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: (() => { try { return localStorage.getItem('dn-analytics') === 'granted' ? 'granted' : 'denied'; } catch { return 'denied'; } })(),
+    });
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L0THVVBFBY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L0THVVBFBY');
+  </script>
+  <script src="analytics.js" defer></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Privacy Policy · DynamicNotch</title>
@@ -33,10 +53,11 @@
     <h1>Privacy Policy</h1>
     <p class="updated">Last updated 21 October 2026</p>
 
-    <p class="summary">DynamicNotch has no accounts, no ads, no analytics and no tracking. Almost everything happens on
-      your Mac and your iPhone or iPad. What does leave them is listed below: your license check, song lookups for
-      lyrics, and, if you use the iPhone or iPad app, messages between your Mac and your phone, which are encrypted
-      so that nobody else, including us, can read them.</p>
+    <p class="summary">The DynamicNotch apps have no accounts, no ads, no analytics and no tracking. Almost everything
+      happens on your Mac and your iPhone or iPad. What does leave them is listed below: your license check, song
+      lookups for lyrics, and, if you use the iPhone or iPad app, messages between your Mac and your phone, which are
+      encrypted so that nobody else, including us, can read them. Our website counts visits and downloads with Google
+      Analytics, and only sets its cookies if you agree.</p>
 
     <p>This policy covers <strong>DynamicNotch</strong> for Mac and <strong>DynamicNotch Companion</strong> for iPhone
       and iPad (together, “DynamicNotch”). “We” means the developer of DynamicNotch.</p>
@@ -97,10 +118,29 @@
     <p>Our license server runs on <strong>Cloudflare</strong>, which handles its traffic, including your IP address,
       as any web host does. We don't keep logs of your requests beyond brief error messages.</p>
 
+    <h2 id="website">Our website</h2>
+    <p>Our website is hosted by <strong>GitHub Pages</strong>, which receives your IP address and browser details
+      when you visit, as any web host does.</p>
+    <p>To see how many people visit it and download DynamicNotch, the website uses <strong>Google Analytics</strong>.
+      When you first visit, it asks whether you agree:</p>
+    <ul>
+      <li><strong>If you accept,</strong> Google Analytics sets cookies and tells Google which pages you visit, when
+        you download the app, the site that sent you, your browser and device type, and an approximate location
+        (country or city) derived from your IP address. Google doesn't share your full IP address with us, and we
+        don't use any of this for advertising.</li>
+      <li><strong>If you decline, or haven't chosen yet,</strong> no analytics cookies are set. Google may still
+        receive a basic signal that a page was viewed, without cookies or anything that identifies you over time
+        (Google calls this Consent Mode).</li>
+    </ul>
+    <p>You can change your answer at any time with <strong>Cookie settings</strong> at the bottom of each page.
+      Google handles this data under its <a href="https://policies.google.com/privacy" rel="noopener">privacy
+      policy</a>. The website stores your answer in your browser, not on any server.</p>
+
     <h2>What we don't do</h2>
     <ul>
       <li>We don't sell, rent or share your information, and we don't use it for advertising.</li>
-      <li>We don't track you across apps or websites, and DynamicNotch contains no third-party analytics or advertising code.</li>
+      <li>We don't track you across apps or websites. The DynamicNotch apps contain no analytics or advertising code;
+        the website uses Google Analytics only as described above.</li>
       <li>We don't see your files, your screen, your conversations with Claude or ChatGPT, or anything you type. The
         only exception is the short text of a notification passing through our server on its way to Apple, as above,
         which isn't stored.</li>
