@@ -1,8 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>DynamicNotch</title>
         <link>https://clauclau1.github.io/Dynamic-Notch/</link>
         <description>Updates for DynamicNotch. scripts/release.sh adds each version here.</description>
+        <item>
+            <title>1.1</title>
+            <pubDate>Wed, 21 Oct 2026 22:59:31 +0300</pubDate>
+            <link>https://clauclau1.github.io/Dynamic-Notch/</link>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://clauclau1.github.io/Dynamic-Notch/downloads/DynamicNotch-1.1.dmg" length="8114328" type="application/octet-stream" sparkle:edSignature="FVHvc70F30k8EgyBBBPrWVx0IHzZs2w7KvRLZLK3XYKFoXRO4v/CDpaGmyAXLggmIUy1poz3fjslNEbkKRrxDA=="/>
+        </item>
     </channel>
 </rss>
