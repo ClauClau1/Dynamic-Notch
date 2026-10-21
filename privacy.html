@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Privacy Policy · DynamicNotch</title>
+  <meta name="description" content="What DynamicNotch for Mac and DynamicNotch Companion for iPhone and iPad do with your data.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .policy { max-width: 720px; margin: 0 auto; padding-block: 110px 90px;
+              padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+    .policy .back { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 15px; }
+    .policy .back img { border-radius: 6px; }
+    .policy h1 { margin: 22px 0 6px; font-size: clamp(38px, 7vw, 56px); }
+    .policy .updated { margin: 0 0 28px; color: var(--faint); font-size: 15px; }
+    .policy .summary { margin: 0 0 36px; padding: 22px 24px; border-radius: var(--radius); background: var(--card);
+                       border: 1px solid var(--card-border); font-size: 17px; line-height: 1.55; }
+    .policy h2 { margin: 40px 0 10px; font-size: 24px; letter-spacing: -0.01em; }
+    .policy h3 { margin: 24px 0 6px; font-size: 18px; }
+    .policy p, .policy li { font-size: 16px; line-height: 1.6; color: var(--muted); }
+    .policy strong { color: var(--text, inherit); }
+    .policy ul { padding-left: 22px; }
+    .policy li + li { margin-top: 6px; }
+    .policy a { color: inherit; }
+  </style>
+</head>
+<body data-accent="indigo">
+  <div class="glow" aria-hidden="true"></div>
+  <main class="policy">
+    <a class="back" href="index.html"><img src="assets/icon.png" alt="" width="24" height="24">DynamicNotch</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated 21 October 2026</p>
+
+    <p class="summary">DynamicNotch has no accounts, no ads, no analytics and no tracking. Almost everything happens on
+      your Mac and your iPhone or iPad. What does leave them is listed below: your license check, song lookups for
+      lyrics, and, if you use the iPhone or iPad app, messages between your Mac and your phone, which are encrypted
+      so that nobody else, including us, can read them.</p>
+
+    <p>This policy covers <strong>DynamicNotch</strong> for Mac and <strong>DynamicNotch Companion</strong> for iPhone
+      and iPad (together, “DynamicNotch”). “We” means the developer of DynamicNotch.</p>
+
+    <h2>What stays on your devices</h2>
+    <ul>
+      <li><strong>The island.</strong> What's playing, your volume and brightness, battery, Bluetooth devices and their
+        battery levels, Focus, downloads, timers, temperatures and fan speeds are read on your Mac and shown on your Mac.</li>
+      <li><strong>Camera and microphone indicators.</strong> DynamicNotch notices which app is using your camera or
+        microphone. It never sees or hears what they capture.</li>
+      <li><strong>Live waveform.</strong> If you turn it on, DynamicNotch measures how loud the music playing on your Mac
+        is, to move the bars. Nothing is recorded or stored.</li>
+      <li><strong>Clipboard and file conversion.</strong> Files you drop on the island, and files you convert, stay on
+        your Mac. Conversions happen on your Mac; nothing is uploaded.</li>
+      <li><strong>Claude and ChatGPT.</strong> If you connect them, they tell DynamicNotch on your Mac when they're
+        working, need a permission, ask a question or finish. DynamicNotch shows only what that needs: the project's
+        folder name, the command or question, and the last line of a finished task, which it keeps in a short Recent
+        list on your Mac (and your paired iPhone or iPad). It stays on your devices, except as described below for the
+        iPhone and iPad app.</li>
+      <li><strong>Pairing.</strong> Pairing your iPhone or iPad with your Mac creates a secret key that's kept on both
+        (in the Keychain on iPhone and iPad), and never sent to us.</li>
+      <li><strong>The camera on iPhone and iPad</strong> is used only to scan your Mac's pairing code. No photos are
+        taken or kept.</li>
+    </ul>
+
+    <h2>What leaves your devices</h2>
+
+    <h3>Your license (Mac)</h3>
+    <p>When you buy DynamicNotch, payment is handled by <strong>Stripe</strong>; we never see your card. Our license
+      server keeps your license key, plan, the email address you gave at checkout, your Stripe customer and subscription
+      references, and an identifier for each Mac you activate. That identifier is a one-way hash, not your Mac's serial
+      number or name. Your Mac sends its license key and this identifier to the license server to activate, and checks
+      in about twice a day to keep your license current. We use this only to provide and verify your license.</p>
+
+    <h3>Lyrics (Mac)</h3>
+    <p>If lyrics are on, the title, artist, album and length of the song you're playing are sent to
+      <strong>LRCLIB</strong> (lrclib.net), a free lyrics library, to find its words.</p>
+
+    <h3>Updates (Mac)</h3>
+    <p>Your Mac checks our website for new versions of DynamicNotch. Like any web page, that request includes your IP
+      address and basic information about your Mac's system, which the website's host (GitHub) receives.</p>
+
+    <h3>Your iPhone or iPad and your Mac</h3>
+    <ul>
+      <li><strong>On the same network,</strong> your iPhone or iPad talks to your Mac directly. Everything is encrypted
+        with your pairing key.</li>
+      <li><strong>Away from home</strong> (DynamicNotch Pro), messages go through our server, which passes them between
+        your Mac and your phone. They're encrypted with your pairing key before they leave either device, so the server
+        can't read them. It keeps only a one-way hash of a secret derived from that key, to let in only your devices.</li>
+      <li><strong>When the app is closed,</strong> your Mac can update your Live Activity or send a notification. To do
+        that, your iPhone or iPad gives your Mac its push tokens (Apple's addresses for your device), and your Mac sends
+        the update through our server to <strong>Apple's Push Notification service</strong>. Such an update holds what
+        the notification shows, such as “Claude · Permission: Run npm test” and the project's folder name. Our server
+        passes it to Apple at once and doesn't store it.</li>
+    </ul>
+
+    <h3>Service providers</h3>
+    <p>Our license server runs on <strong>Cloudflare</strong>, which handles its traffic, including your IP address,
+      as any web host does. We don't keep logs of your requests beyond brief error messages.</p>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>We don't sell, rent or share your information, and we don't use it for advertising.</li>
+      <li>We don't track you across apps or websites, and DynamicNotch contains no third-party analytics or advertising code.</li>
+      <li>We don't see your files, your screen, your conversations with Claude or ChatGPT, or anything you type. The
+        only exception is the short text of a notification passing through our server on its way to Apple, as above,
+        which isn't stored.</li>
+    </ul>
+
+    <h2>Keeping and deleting your data</h2>
+    <p>Your license is kept for as long as it's active, so you can keep using it and move it between Macs. To free a
+      Mac, use Settings → License → Deactivate this Mac. To have your license information deleted, contact us at the
+      address below. Removing the apps removes everything they keep on your devices. On your Mac, that's
+      ~/Library/Application Support/DynamicNotch; on iPhone and iPad, deleting the app does it.</p>
+
+    <h2>Children</h2>
+    <p>DynamicNotch isn't directed at children under 13, and we don't knowingly collect information from them.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, we'll update it here and change the date at the top.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy or your data: <a href="mailto:claudiusimiz0@gmail.com">claudiusimiz0@gmail.com</a>.</p>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><img src="assets/icon.png" alt="" width="24" height="24"><span>DynamicNotch</span></div>
+    <p>Mac, MacBook, iPhone, iPad and Dynamic Island are trademarks of Apple Inc. DynamicNotch is not affiliated with Apple,
+      Anthropic or OpenAI.</p>
+  </footer>
+</body>
+</html>
