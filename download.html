@@ -95,6 +95,15 @@
         <a class="button primary large" id="dmg" href="#"><svg><use href="#i-download"/></svg>Download for Mac</a>
       </div>
       <p class="release" id="release" hidden></p>
+      <!-- Shown once the download starts. -->
+      <div class="follow" id="follow" hidden aria-live="polite">
+        <p class="follow-title">Downloading DynamicNotch…</p>
+        <p>Open it from your Downloads when it's done. Meanwhile, follow along for tips and what's new.</p>
+        <div class="follow-links">
+          <a class="button" href="https://www.tiktok.com/@dynamic_notch.app" rel="noopener"><svg><use href="assets/socials.svg#tiktok"/></svg>TikTok</a>
+          <a class="button" href="https://www.instagram.com/dymanic_notch.app/" rel="noopener"><svg><use href="assets/socials.svg#instagram"/></svg>Instagram</a>
+        </div>
+      </div>
       <div class="actions" id="soon">
         <span class="soon"><span class="dot"></span>Coming soon</span>
       </div>
@@ -151,6 +160,10 @@
 
   <footer>
     <div class="footer-brand"><img src="assets/icon.png" alt="" width="24" height="24"><span>DynamicNotch</span></div>
+    <div class="socials">
+      <a href="https://www.tiktok.com/@dynamic_notch.app" rel="noopener" aria-label="DynamicNotch on TikTok"><svg><use href="assets/socials.svg#tiktok"/></svg></a>
+      <a href="https://www.instagram.com/dymanic_notch.app/" rel="noopener" aria-label="DynamicNotch on Instagram"><svg><use href="assets/socials.svg#instagram"/></svg></a>
+    </div>
     <p>Mac, MacBook, MacBook Air, MacBook Pro, iMac, AirPods and Dynamic Island are trademarks of Apple Inc. DynamicNotch is not affiliated with Apple.</p>
   </footer>
 
@@ -161,6 +174,7 @@
       if (!dmg) return;
       // The release is out: swap "Coming soon" for the download.
       document.getElementById('dmg').href = dmg;
+      document.getElementById('dmg').addEventListener('click', () => { document.getElementById('follow').hidden = false; });
       document.getElementById('ready').hidden = false;
       document.getElementById('soon').hidden = true;
       document.getElementById('soon-note').hidden = true;

@@ -666,6 +666,20 @@ footer p { margin: 0; max-width: 680px; }
 .segmented.small button { height: 34px; padding: 0 13px; font-size: 13px; }
 .segmented.small button svg { font-size: 16px; }
 
+/* ---------- TikTok and Instagram ---------- */
+
+.socials { display: flex; gap: 10px; }
+.socials a { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--fill);
+             color: rgba(255, 255, 255, 0.8); font-size: 17px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+.socials a:hover { background: var(--fill-strong); color: #fff; }
+
+/* After a download or a purchase: where to follow along. */
+.follow { max-width: 520px; margin: 28px auto 0; padding: 22px 24px 24px; border-radius: var(--radius); text-align: center;
+          background: var(--card); border: 1px solid var(--card-border); }
+.follow p { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+.follow .follow-title { margin: 0; font-size: 18px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+.follow-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 16px; }
+
 /* ---------- Asking about cookies (analytics.js) ---------- */
 
 .consent {

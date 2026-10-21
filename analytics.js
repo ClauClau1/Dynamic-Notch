@@ -44,6 +44,13 @@
     footer.append(settings);
   }
 
+  // Visits to TikTok and Instagram from the site.
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href*="tiktok.com"], a[href*="instagram.com"]');
+    if (!link) return;
+    gtag('event', 'social_click', { network: link.hostname.replace(/^www\.|\.com$/g, ''), link_url: link.href });
+  });
+
   document.addEventListener('click', (event) => {
     const link = event.target.closest('a[href$=".dmg"]');
     if (!link) return;
